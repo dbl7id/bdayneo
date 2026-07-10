@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BDAY Neo Wiki — Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1 class="site-title" id="siteTitle">Loading\u2026</h1>
+  <p class="site-subtitle">jump to a section</p>
+  <nav class="hotbar" id="hotbar">
+    <button class="slot theme-slot" id="themeToggle" aria-label="Toggle day/night mode" type="button">\u263D</button>
+  </nav>
+</header>
+
+<div class="loader-panel">
+  <strong>Builder tool</strong> — this page is only for looking at live edits. Otherwise, 
+  the version built will not have this section.
+  <div class="row">
+    <label class="filebtn" for="xmlFilePicker">Load content.xml manually</label>
+    <input type="file" id="xmlFilePicker" accept=".xml,text/xml">
+    <label class="filebtn" for="imagesFolderPicker">Load media folder (images + video)</label>
+    <input type="file" id="imagesFolderPicker" webkitdirectory multiple>
+  </div>
+  <div class="status" id="loadStatus">Trying to load content.xml automatically\u2026</div>
+</div>
+
+<main id="siteContent"></main>
+
+<div class="compile-bar">
+  <button id="compileBtn" type="button">Compile &amp; Download Single HTML</button>
+</div>
+
+<footer class="site-footer">BDAY Neo &middot; wiki builder</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

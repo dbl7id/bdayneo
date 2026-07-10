@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BDAY NEO WIKI — CONTENT FILE
+  ============================
+  <meta><sitetitle> = the big title at the top of the page.
+
+  <section> attributes:
+    id       required, no spaces  - used for the #anchor link
+    nav      text shown as a hotbar button up top. Leave empty ("") to
+             hide this section from the hotbar (it still shows on the page,
+             good for things like Troubleshooting or FAQ).
+    title    the heading text for this section
+    heading  h1 | h2 | h3  - controls size/weight of the title
+    accent   moss | glow | clay  - controls the color badge/underline
+
+  <body> — put your text in a CDATA block. Basic HTML is allowed:
+    <p>, <strong>, <em>, <ul>/<ol>/<li>, <code>, <pre><code> (multi-line
+    code block, e.g. JVM args), <h4>/<h5> (sub-headers inside a section,
+    e.g. splitting "Prism Instructions" vs "SKLauncher Instructions"),
+    <a href="">, <br/>
+
+  <image> — one per image, as many as you like per section:
+    id       optional. Give an image an id so you can place it at an exact
+             point inside <body> using <img-slot ref="that-id"/>. Any image
+             WITHOUT a matching img-slot reference is instead appended as a
+             gallery at the end of the section — handy for quick one-off
+             images where placement doesn't matter.
+    src      path relative to this folder, e.g. images/step1.png
+    alt      accessibility text
+    caption  small text shown under the image
+    width    max width in pixels (optional, defaults to 700)
+    align    left | center | right (optional, defaults to center)
+
+  <video> — a locally-hosted video file, embedded into the compiled file:
+    id       same idea as <image id>, paired with <video-slot ref="that-id"/>
+    src      path relative to this folder, e.g. images/update.mp4
+    caption  small text shown under the video
+    width    max width in pixels (optional, defaults to 800)
+    align    left | center | right (optional, defaults to center)
+    poster   optional path to a thumbnail image shown before playback
+  Large video files (15MB+) trigger a prompt during compile asking whether
+  to actually embed them (bigger download, works standalone) or leave them
+  as a separate file you distribute alongside the HTML.
+
+  Placing an image inline inside <body>:
+    <p>Click Import, then Browse.</p>
+    <img-slot ref="prism_import"/>
+  ...matched against:
+    <image id="prism_import" src="images/prism_import.png" .../>
+
+  Placing a video inline inside <body>:
+    <video-slot ref="update-video"/>
+  ...matched against:
+    <video id="update-video" src="images/update.mp4" .../>
+-->
+<wiki>
+  <meta>
+    <sitetitle>BDAY Neo Installation/Update Instruction</sitetitle>
+  </meta>
+
+  <section id="installation" nav="Installation" title="BDAY Neo Installation" heading="h1" accent="moss">
+    <body><![CDATA[
+      <p>BDAY Neo runs on any launcher that supports installing custom modloaders for Minecraft.
+      This guide was written with <strong>Prism Launcher</strong> and <strong>SKLauncher</strong>
+      in mind, and assumes you already have one of them installed.</p>
+
+      <p>At no point do we recommend using the vanilla Minecraft launcher. If you choose to use it
+      anyway, we offer <strong>no support</strong> — any troubleshooting is on you.</p>
+
+      <p>Download the modpack files from Discord first. With that out of the way, let's get the
+      modpack up and running.</p>
+
+      <h4>Step 1 — Log In</h4>
+
+      <p>Open your launcher of choice and log in.</p>
+
+      <p>On <strong>Prism Launcher</strong>, when you launch it, you should see this pop-up. Click
+      <strong>Add Microsoft Account</strong>, then on the next pop-up either sign in with the
+      "Sign in with Microsoft" button, or by scanning the QR code.</p>
+      <img-slot ref="prism_login_1"/>
+      <img-slot ref="prism_login_2"/>
+
+      <p>On <strong>SKLauncher</strong>, click either the Microsoft or SKLauncher option — this
+      guide uses the SKLauncher option. Enter your username, then log in.</p>
+      <img-slot ref="sk_login"/>
+
+      <h4>Step 2 — Create Your Instance</h4>
+
+      <p>Once logged in, you'll land on the default home screen of your launcher.</p>
+      <img-slot ref="prism_home"/>
+      <img-slot ref="sk_home"/>
+
+      <p>From here we want to add a new Minecraft instance.</p>
+
+      <h5>Prism Instructions</h5>
+      <p>At the top-left of the screen, click the <strong>Add Instance</strong> button.</p>
+      <img-slot ref="prism_instance_button"/>
+      <p>You'll be met with this screen.</p>
+      <img-slot ref="prism_instance_screen"/>
+      <p>Click <strong>Import</strong>, then <strong>Browse</strong>, and select
+      <code>NEOBday.mrpack</code>. When you're done, it should look like this.</p>
+      <img-slot ref="prism_import"/>
+      <p>Click <strong>OK</strong> and everything will import automatically. Skip ahead to Step 3.</p>
+
+      <h5>SKLauncher Instructions</h5>
+      <p>On the left-hand side of the screen there's a large plus symbol — hover over it and it'll
+      say <strong>New Instance</strong>. Click it.</p>
+      <img-slot ref="sk_instance_button"/>
+      <p>You'll be met with this pop-up. Here you can change the instance icon and name to
+      whatever you like.</p>
+      <img-slot ref="sk_instance_screen"/>
+      <p>For the Minecraft version and everything else, set it up exactly as shown here, then
+      click <strong>Create Instance</strong>.</p>
+      <img-slot ref="sk_instance_settings"/>
+      <p>The instance will start downloading — let it finish before continuing.</p>
+      <img-slot ref="sk_instance_download"/>
+      <p>Once it's done, right-click the instance and click <strong>Open Folder</strong>. You
+      should see this:</p>
+      <img-slot ref="sk_folder"/>
+      <p>Paste the contents of the <code>minecraft</code> folder from <code>NEOBday.zip</code> in
+      here. It should look like this when you're done:</p>
+      <img-slot ref="populated_sk_folder"/>
+      <p>That's it for this step — move on to Step 3.</p>
+
+      <h4>Step 3 — Configure &amp; Launch</h4>
+
+      <p>Almost done — all that's left is configuring the instance so everything runs smoothly.</p>
+
+      <h5>Prism Instructions</h5>
+      <p>Right-click your instance and click <strong>Edit</strong>.</p>
+      <img-slot ref="prism_right_click"/>
+      <p>Go to <strong>Settings</strong>, then the <strong>Java</strong> tab.</p>
+      <img-slot ref="prism_settings_1"/>
+      <p>Configure the settings so they match this:</p>
+      <img-slot ref="prism_settings_2"/>
+      <p>For Java Arguments, copy and paste this:</p>
+      <pre><code>-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M</code></pre>
+      <p>Once you're done, click <strong>Close</strong>, then launch the instance by
+      double-clicking it.</p>
+
+      <h5>SKLauncher Instructions</h5>
+      <p>On SK it's a bit more straightforward. Right-click your instance and click
+      <strong>Settings</strong>. Click <strong>Java &amp; Memory</strong> and drag the slider
+      until you reach <strong>7680 MB</strong>, like this:</p>
+      <img-slot ref="sk_settings"/>
+      <img-slot ref="sk_java"/>
+      <p>Save your changes — you're ready to play!</p>
+    ]]></body>
+
+    <image id="prism_login_1" src="images/prism_login_1.png" alt="Prism Launcher Add Microsoft Account pop-up" caption="Add Microsoft Account pop-up" width="480" align="left"/>
+    <image id="prism_login_2" src="images/prism_login_2.png" alt="Prism Launcher sign-in options: Microsoft sign-in or QR code" caption="Sign in with Microsoft, or scan the QR code" width="480" align="right"/>
+    <image id="sk_login" src="images/sk_login.png" alt="SKLauncher login screen" caption="SKLauncher login" width="600" align="center"/>
+    <image id="prism_home" src="images/prism_home.png" alt="Prism Launcher home screen" caption="Prism Launcher — home screen" width="480" align="left"/>
+    <image id="sk_home" src="images/sk_home.png" alt="SKLauncher home screen" caption="SKLauncher — home screen" width="480" align="right"/>
+    <image id="prism_instance_button" src="images/prism_instance_button.png" alt="Add Instance button in Prism Launcher" caption="The Add Instance button" width="600" align="center"/>
+    <image id="prism_instance_screen" src="images/prism_instance_screen.png" alt="Prism Launcher add instance screen" caption="Add instance screen" width="600" align="center"/>
+    <image id="prism_import" src="images/prism_import.png" alt="Prism Launcher import screen with NEOBday.mrpack selected" caption="Ready to import NEOBday.mrpack" width="600" align="center"/>
+    <image id="sk_instance_button" src="images/sk_instance_button.png" alt="New Instance plus button in SKLauncher" caption="The New Instance button" width="600" align="center"/>
+    <image id="sk_instance_screen" src="images/sk_instance_screen.png" alt="SKLauncher new instance icon and name pop-up" caption="Set an instance icon and name" width="600" align="center"/>
+    <image id="sk_instance_settings" src="images/sk_instance_settings.png" alt="SKLauncher instance version settings" caption="Instance version settings" width="600" align="center"/>
+    <image id="sk_instance_download" src="images/sk_instance_download.png" alt="SKLauncher instance downloading" caption="Instance downloading — let this finish" width="600" align="center"/>
+    <image id="sk_folder" src="images/sk_folder.png" alt="SKLauncher instance folder contents before pasting mods" caption="Instance folder, before pasting the modpack files" width="600" align="center"/>
+    <image id="populated_sk_folder" src="images/populated_sk_folder.png" alt="SKLauncher instance folder after pasting mods" caption="Instance folder, after pasting in NEOBday.zip's minecraft folder" width="600" align="center"/>
+    <image id="prism_right_click" src="images/prism_right_click.png" alt="Right-click menu on a Prism Launcher instance" caption="Right-click your instance, then Edit" width="600" align="center"/>
+    <image id="prism_settings_1" src="images/prism_settings_1.png" alt="Prism Launcher Java settings tab" caption="Settings &gt; Java tab" width="600" align="center"/>
+    <image id="prism_settings_2" src="images/prism_settings_2.png" alt="Prism Launcher Java settings configured correctly" caption="Java settings, configured" width="600" align="center"/>
+    <image id="sk_settings" src="images/sk_settings.png" alt="SKLauncher instance settings menu" caption="Instance settings" width="480" align="left"/>
+    <image id="sk_java" src="images/sk_java.png" alt="SKLauncher Java and Memory slider set to 7680 MB" caption="Java &amp; Memory slider at 7680 MB" width="480" align="right"/>
+  </section>
+
+  <section id="update" nav="Update" title="Updating BDAY Neo" heading="h1" accent="glow">
+    <body><![CDATA[
+      <p>In the future, all modpack updates will be handled automatically by the server. For now,
+      updates have to be done manually.</p>
+
+      <div class="callout">
+        <span class="callout-icon">&#9888;</span>
+        <span><strong>Heads up:</strong> this update will reset your keybinds. Future updates
+        won't do this — just keep it in mind for this one.</span>
+      </div>
+
+      <p>In your launcher, right-click your instance and open the installation folder. Follow
+      along with the video below for the rest of the steps.</p>
+
+      <video-slot ref="update-video"/>
+
+      <p>Having trouble with the embedded video above? You can also
+      <a href="https://youtu.be/RX6IJHkWfs8" target="_blank" rel="noopener noreferrer">watch it on YouTube</a>.</p>
+    ]]></body>
+
+    <video id="update-video" src="images/update.mp4" caption="Update walkthrough" width="800" align="center"/>
+  </section>
+
+  <section id="troubleshooting" nav="" title="Troubleshooting" heading="h2" accent="clay">
+    <body><![CDATA[
+      <p><em>I'm so lazy, maybe next year for this one</em></p>
+    ]]></body>
+  </section>
+</wiki>

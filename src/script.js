@@ -105,7 +105,7 @@ async function figureHTMLFor(imgTag, resolver) {
   const align = imgTag.getAttribute("align") || "center";
   const resolvedSrc = await resolver(src);
   return `<figure class="wiki-figure align-${escapeAttr(align)}">
-    <img src="${resolvedSrc}" alt="${escapeAttr(alt)}" style="max-width:${escapeAttr(width)}px; width:100%; height:auto;">
+    <img src="${resolvedSrc}" alt="${escapeAttr(alt)}" style="max-width:min(${escapeAttr(width)}px, 100%); height:auto;">
     ${caption ? `<figcaption>${escapeHTML(caption)}</figcaption>` : ""}
   </figure>`;
 }
@@ -127,7 +127,7 @@ async function videoHTMLFor(vidTag, resolver) {
   }
 
   return `<figure class="wiki-figure align-${escapeAttr(align)}">
-    <video controls preload="metadata" style="max-width:${escapeAttr(width)}px;width:100%;"${resolvedPoster ? ` poster="${resolvedPoster}"` : ""}>
+    <video controls preload="metadata" style="max-width:min(${escapeAttr(width)}px, 100%); height:auto;"${resolvedPoster ? ` poster="${resolvedPoster}"` : ""}>
       <source src="${resolvedSrc}">
       Your browser doesn't support embedded video. <a href="${resolvedSrc}" download>Download the video</a> instead.
     </video>

@@ -34,6 +34,11 @@
 
 * { box-sizing: border-box; }
 
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -452,4 +457,22 @@ footer.site-footer {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.78rem;
   padding: 20px 0 60px;
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 640px) {
+  /* align="left"/"right" is meant for wider screens where an image can sit
+     off to one side of surrounding text. On a narrow screen the image is
+     already full-width (see the img/video max-width:100% rule above), so
+     a left/right-aligned caption just looks like a stray fragment of text
+     hugging one edge — center everything instead. */
+  figure.wiki-figure.align-left,
+  figure.wiki-figure.align-right {
+    text-align: center;
+  }
+
+  main { padding: 0 14px 80px; }
+  section.wiki-section { padding: 22px 18px 20px; }
+  header.site-header { padding: 32px 16px 0; }
 }

@@ -105,7 +105,7 @@ async function figureHTMLFor(imgTag, resolver) {
   const align = imgTag.getAttribute("align") || "center";
   const resolvedSrc = await resolver(src);
   return `<figure class="wiki-figure align-${escapeAttr(align)}">
-    <img src="${resolvedSrc}" alt="${escapeAttr(alt)}" style="max-width:${escapeAttr(width)}px">
+    <img src="${resolvedSrc}" alt="${escapeAttr(alt)}" style="max-width:${escapeAttr(width)}px; width:100%; height:auto;">
     ${caption ? `<figcaption>${escapeHTML(caption)}</figcaption>` : ""}
   </figure>`;
 }

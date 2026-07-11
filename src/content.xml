@@ -186,9 +186,18 @@
 
       <p>Having trouble with the embedded video above? You can also
       <a href="https://youtu.be/RX6IJHkWfs8" target="_blank" rel="noopener noreferrer">watch it on YouTube</a>.</p>
+
+      <p>After updating the files, to completely download the modpack, you have to open and join
+      the server. Watch the video to see the rest of the steps:</p>
+
+      <video-slot ref="first-open-video"/>
+
+      <p>After restarting the game, your modpack should now be completely installed, and you
+      should be able to join the server.</p>
     ]]></body>
 
     <video id="update-video" src="images/update.mp4" caption="Update walkthrough" width="800" align="center"/>
+    <video id="first-open-video" src="images/first_open.mp4" caption="Opening and joining the server for the first time" width="800" align="center"/>
   </section>
 
   <section id="troubleshooting" nav="" title="Troubleshooting" heading="h2" accent="clay">
